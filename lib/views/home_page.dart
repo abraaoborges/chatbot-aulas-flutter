@@ -2,6 +2,7 @@ import 'package:chatbot/models/chat_message.dart';
 import 'package:chatbot/widgets/chat_message_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import 'package:clippy_flutter/clippy_flutter.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Text('Chatbot - Professor'),
+        title: Text('Chatbot'),
       ),
       body: Column(
         children: <Widget>[
@@ -118,15 +119,21 @@ class _HomePageState extends State<HomePage> {
 
   // Monta uma linha com o campo de text e o botão de enviao
   Widget _buildUserInput() {
-    return Container(
-      color: Colors.white,
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+    return Padding(
+      padding: EdgeInsets.all(3),
+    child: Container(
+      padding: const EdgeInsets.all(6),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        color: Colors.blue
+      ),
       child: new Row(
         children: <Widget>[
           _buildTextField(),
           _buildSendButton(),
         ],
       ),
+    )
     );
   }
 }
